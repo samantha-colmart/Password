@@ -1,3 +1,5 @@
+import hashlib
+
 caracteres_speciaux = "!@#$%^&*"
 
 while True:
@@ -37,3 +39,9 @@ while True:
 
     print("Mot de passe valide !")
     break
+
+hash_object = hashlib.sha256(mot_de_passe.encode())  
+mot_de_passe_hash = hash_object.hexdigest()
+
+print("\nMot de passe haché (SHA-256) :")
+print(mot_de_passe_hash)
