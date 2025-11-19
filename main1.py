@@ -30,8 +30,20 @@ while True:
 
 hash_object = hashlib.sha256(mot_de_passe.encode())  
 mot_de_passe_hash = hash_object.hexdigest()
+try:
+    with open("password.json", "r") as fichier:
+        liste_hash = json.load(fichier)   # lire ce qu'il y a déjà
+
+        if isinstance(liste_hash, str):
+            liste_hash = [liste_hash]
+
+except:
+    liste_hash = []
+
+liste_hash.append(mot_de_passe_hash)
+
 with open('password.json', 'w') as fichier:
-    json.dump(mot_de_passe_hash, fichier, indent=4)
+    json.dump(liste_hash, fichier, indent=4)
 
 print("\nMot de passe haché (SHA-256) :")
 print(mot_de_passe_hash)
