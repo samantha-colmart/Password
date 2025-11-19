@@ -1,5 +1,5 @@
 import hashlib
-
+import json
 caracteres_speciaux = "!@#$%^&*"
 
 while True:
@@ -30,6 +30,8 @@ while True:
 
 hash_object = hashlib.sha256(mot_de_passe.encode())  
 mot_de_passe_hash = hash_object.hexdigest()
+with open('password.json', 'w') as fichier:
+    json.dump(mot_de_passe_hash, fichier, indent=4)
 
 print("\nMot de passe haché (SHA-256) :")
 print(mot_de_passe_hash)
