@@ -1,6 +1,19 @@
 import hashlib
+import json
+import os
 
 caracteres_speciaux = "!@#$%^&*"
+FICHIER = "mots_de_passe.json"
+
+def charger_mots_de_passe():
+    if not os.path.exists(FICHIER):
+        return []
+    with open(FICHIER, "r") as f:
+        return json.load(f)
+    
+def sauvegarder_mots_de_passe(liste):
+    with open (FICHIER, "w") as f:
+        return json.dump(liste, f, indent=4)
 
 while True:
     mot_de_passe = input("Veuillez entrer votre mot de passe : ")
@@ -45,3 +58,9 @@ mot_de_passe_hash = hash_object.hexdigest()
 
 print("\nMot de passe haché (SHA-256) :")
 print(mot_de_passe_hash)
+
+mots = charger_mots_de_passe()
+mots.append(mot_de_passe_hash)
+sauvegarder_mots_de_passe(mots)
+
+print("\nMot de passe haché enregistré dans le fichier JSON !")
