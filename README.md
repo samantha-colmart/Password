@@ -74,11 +74,9 @@ Le programme permet :
 Tu as créé deux versions, fonctionnant pareil mais écrites différemment :
 
 
-FichierDescriptionmain.py / 
+FichierDescriptionmain.py / password.py💠 Version n°1 : style 1, logique classique
 
-password.py💠 Version n°1 : style 1, logique classiquemain1.py / 
-
-mots_de_passe.py💠 Version n°2 : même programme mais écrit différemment
+main1.py / mots_de_passe.py💠 Version n°2 : même programme mais écrit différemment
 
 
 Les deux :
